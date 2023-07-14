@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 단어장</title>
+    <style>
+        .wrapper1 .sidebar1{
+            background: rgb(117, 195, 241);
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 50vw;
+            height: 100%;
+            padding: 20px 0;
+            transition: all 0.5s ease;
+        }
+        .wrapper2 .sidebar2{
+            background: rgb(241, 117, 117);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 50vw;
+            height: 100%;
+            padding: 20px 0;
+            transition: all 0.5s ease;
+        }
+        .mylist{
+            background-color: aqua;
+        }
+        .words{
+            text-shadow: 2px 2px 4px rgb(255, 255, 255);
+        }
+        .back{
+            width: 70px;
+            background-color: rgb(13, 255, 0);
+            border-radius: 20%;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+    </style>
+    <script>
+        function savetext(){
+            var text = document.getElementById('mytext').value;
+            localStorage.setItem('savedtext',text);
+        }
+        function loadtext(){
+            var savedtext = localStorage.getItem('savedtext');
+            if(savedtext){
+                document.getElementById('mytext').value = savedtext;
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <div class="wrapper1">
+        
+        <div class="sidebar1">
+            
+            <h2 class="mylist">나의 단어 목록2</h2>
+            <form th:action method="post">
+                <h3 for="content">일회용</h3>
+                <textarea cols="30" rows="10" placeholder="외울 단어를 적어주세용~♥"></textarea>
+            </form>
+            <p class="back"><a href="program1.html">돌아가기</a></p>
+        </div>
+    </div>
+    
+    <div class="wrapper2">
+        <div class="sidebar2">
+            <h2 class="mylist">나의 단어 목록1</h2>
+                <h3 >저장용</h3>
+                <textarea id="mytext" cols="30" rows="10" placeholder="외울 단어를 적어주세용~♥"></textarea><br>
+                <button onclick="savetext()">저장</button>
+                <button onclick="loadtext()">불러오기</button>
+            <p class="back"><a href="program1.html">돌아가기</a></p>
+        </div>
+    </div>
+    
+</body>
+</html>
